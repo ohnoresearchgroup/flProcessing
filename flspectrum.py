@@ -75,7 +75,14 @@ class FlSpectrum():
         self.smoothmax = self.data['wl'][self.datasubsmooth.argmax()]
         if self.calibrated == True:
             self.smoothmaxuncalib = self.data['wluncorr'][self.datasubsmooth.argmax()]
-
+       
+        plt.figure()
+        plt.xlabel("Wavelength [nm]")
+        plt.ylabel("Fluorescence Intensity [counts]")
+        plt.title('Smoothed')
+        plt.plot(self.data['wl'], self.bgdata['counts'])
+        plt.plot(self.data['wl'], self.data['counts'])
+        
         plt.figure()
         plt.xlabel("Wavelength [nm]")
         plt.ylabel("Fluorescence Intensity [counts]")
